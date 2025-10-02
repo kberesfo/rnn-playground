@@ -5,7 +5,7 @@
             "name": "Debug rnn_playground (module)",
             "type": "python",
             "request": "launch",
-            "module": "rnn_playground",
+            "module": "rnn_playground.play",
             "justMyCode": true,
             
         },

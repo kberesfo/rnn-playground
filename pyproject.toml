@@ -1,50 +1,37 @@
-[build-system]
-requires = ["hatchling >= 1.26", "hatch-vcs>=0.4"]
-build-backend = "hatchling.build"
-
 [project]
-version = "0.1.0"
 name = "rnn-playground"
-
+version = "0.1.0"
 description = "RNN sandbox for MIT Intro to Deep Learning labs"
+authors = [
+    { name = "Kiernan Beresford", email = "beresford.kiernan@gmail.com" },
+]
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [{ name = "Kiernan Beresford", email = "beresford.kiernan@gmail.com" }]
-license = { text = "MIT" }
 keywords = ["rnn", "deep-learning", "mit", "dl"]
 classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Intended Audience :: Education",
-  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Education",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
-# Runtime dependencies (edit to taste)
-dependencies = [
-  "numpy>=1.26",
-  "torch>=2.3",
-  "tqdm>=4.66",
-  "matplotlib>=3.8",
-  # Pick one stack; uncomment what you actually use:
-  # "tensorflow>=2.15,<3",     # Keras/TensorFlow labs
-  # "torch>=2.3",              # If you’re doing PyTorch instead
-]
+dependencies = ["numpy>=1.26", "torch>=2.3", "tqdm>=4.66", "matplotlib>=3.8"]
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=8",
-  "ruff>=0.6",
-  "mypy>=1.11",
-  "ipykernel>=6.29",
-  "pre-commit>=3.7"
+    "pytest>=8",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "ipykernel>=6.29",
+    "pre-commit>=3.7",
 ]
+
+[tool.poetry]
+packages = [{ include = "rnn_playground", from = "src" }]
 
 [project.scripts]
 rnn-play = "rnn_playground.__main__:main"
 
-[tool.hatch.envs.default]
-type = "virtual"
-path = ".venv"
-dependencies = [".[dev]"]
-
-
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
