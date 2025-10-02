@@ -1,4 +1,4 @@
-import tqdm
+from tqdm import tqdm
 
 
 class FileLoader:
@@ -9,7 +9,7 @@ class FileLoader:
         string_list = []
         with open(self._file_path) as f:
 
-            for line in tqdm(f, total=sum(1 for _ in open(self._file_path)), desc="Loading file"):
+            for line in tqdm(f, desc="Loading file", unit="lines"):
                 print(line)
                 for char in line:
                     string_list.append(char)
